@@ -1,0 +1,129 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>My E-commerce Webstore</title>  
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <style>  
+        body {  
+            background-image: url(https://media.istockphoto.com/id/1215812761/photo/internet-shopping-with-laptop.jpg?s=2048x2048&w=is&k=20&c=cmkC8C2vbA0eZl80mvSS_xwS26chWBrACCq50RBBUrk=);  
+            background-size: cover;  
+            background-position: center;  
+        }  
+        .welcome-message {  
+            position: fixed;  
+            top: 10px;  
+            left: 50%;  
+            transform: translateX(-50%);  
+            background: rgba(255, 255, 255, 0.8);  
+            padding: 20px;  
+            border-radius: 10px;  
+            font-weight: bold;  
+            font-size: 1.5rem;  
+            width: fit-content;  
+            z-index: 10;  
+            animation: fadeInOut 4s ease-in-out infinite; /* Looping fade effect */
+        }  
+        /* Animation for fade-in and fade-out */
+        @keyframes fadeInOut {  
+            0%, 100% { opacity: 0; }  
+            50% { opacity: 1; }  
+        }  
+        .profile-circle {  
+            height: 150px;  
+            width: 150px;  
+            border-radius: 50%;  
+            overflow: hidden;  
+            border: 5px solid white;  
+            position: relative;  
+            margin: 100px auto;  
+        }  
+        .profile-circle img {  
+            width: 100%;  
+            height: auto;  
+        }  
+        main {  
+            margin-top: 60px;  
+        }  
+        .products-heading {  
+            color: #ff5733;  
+        }  
+    </style>  
+</head>  
+<body class="bg-gray-100">  
+    <!-- Welcome Message -->  
+    <div class="welcome-message">  
+        <h2 class="text-xl font-bold">Welcome to Our E-commerce Website!</h2>  
+    </div>  
+
+    <!-- Profile Circle -->  
+    <div class="profile-circle">  
+        <img src="yaqoob.jpg.jpeg" alt="Profile Picture" />  
+    </div>  
+
+    <!-- Header Section -->  
+    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">  
+        <h1 class="text-2xl">My E-commerce Site</h1>  
+        <nav>  
+            <a href="#home" class="mr-4">Home</a>  
+            <a href="#about" class="mr-4">About Us</a>  
+            <a href="#products" class="mr-4">Products</a>  
+            <a href="#cart" class="mr-4">Cart: <span id="cart-count">3</span> items</a>  
+        </nav>  
+    </header>  
+
+    <!-- Main Content Section -->  
+    <main class="p-4" id="products">  
+        <h2 class="text-xl font-bold mb-4 products-heading">Our Products</h2>  
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-4">  
+            <!-- Product 1 -->  
+            <div class="bg-white p-4 rounded shadow">  
+                <img src="watch.jpg.jpg" alt="Product 1" class="w-full h-auto rounded mb-2" />  
+                <h3 class="text-xl">Product 1</h3>  
+                <p class="font-bold">$10.00</p>  
+                <div class="flex items-center mb-2">  
+                    <span class="text-yellow-500">★★★★★</span>  
+                </div>  
+                <button class="bg-blue-500 text-white p-2 rounded" onclick="addToCart('Product 1', 10)">Add to Cart</button>  
+            </div>  
+
+            <!-- Product 2 -->  
+            <div class="bg-white p-4 rounded shadow">  
+                <img src="joger.jpg.png" alt="Product 2" class="w-full h-auto rounded mb-2" />  
+                <h3 class="text-xl">Product 2</h3>  
+                <p>Description of Product 2</p>  
+                <p class="font-bold">$20.00</p>  
+                <div class="flex items-center mb-2">  
+                    <span class="text-yellow-500">★★★★☆</span>  
+                </div>  
+                <button class="bg-blue-500 text-white p-2 rounded" onclick="addToCart('Product 2', 20)">Add to Cart</button>  
+            </div>  
+
+            <!-- Product 3 -->  
+            <div class="bg-white p-4 rounded shadow">  
+                <img src="jeep.jpg.jpeg" alt="Product 3" class="w-full h-auto rounded mb-2" />  
+                <h3 class="text-xl">Product 3</h3>  
+                <p>Description of Product 3</p>  
+                <p class="font-bold">$30.00</p>  
+                <div class="flex items-center mb-2">  
+                    <span class="text-yellow-500">★★★☆☆</span>  
+                </div>  
+                <button class="bg-blue-500 text-white p-2 rounded" onclick="addToCart('Product 3', 30)">Add to Cart</button>  
+            </div>  
+        </section>  
+    </main>  
+
+    <!-- Comments Section -->  
+    <section class="p-4 bg-white rounded shadow my-4">  
+        <h2 class="text-xl font-bold">Comments</h2>  
+        <textarea class="w-full p-2 border rounded" rows="4" placeholder="Leave your comments here..."></textarea>  
+        <button class="bg-blue-500 text-white p-2 rounded mt-2">Submit</button>  
+    </section>  
+
+    <!-- Footer Section -->  
+    <footer class="bg-blue-600 text-white p-4 text-center">  
+        <p>&copy; 2023 My E-commerce Site</p>  
+    </footer>   
+</body>  
+</html>
