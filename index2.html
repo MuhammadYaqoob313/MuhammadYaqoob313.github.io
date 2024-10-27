@@ -25,18 +25,7 @@
             margin: 20px auto;
         }
 
-        .rotating-ring {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 5px solid transparent;
-            border-top: 5px solid #fff; /* Adjust color as needed */
-            border-radius: 50%;
-            animation: rotate 2s linear infinite;
-        }
-
+       
         @keyframes rotate {
             from {
                 transform: rotate(0deg);
@@ -52,7 +41,8 @@
             top: 8px;
             border-radius: 50%;
             overflow: hidden;
-            border: 5px solid rgb(111, 237, 123);
+            
+            border: 5px solid rgb(255, 255, 255);
             position: relative;
             z-index: 1; /* Ensure the image is above the rotating ring */
         }
