@@ -23,12 +23,6 @@
             font-size: 1.5rem;  
             width: fit-content;  
             z-index: 10;  
-            animation: fadeInOut 4s ease-in-out infinite; /* Looping fade effect */
-        }  
-        /* Animation for fade-in and fade-out */
-        @keyframes fadeInOut {  
-            0%, 100% { opacity: 0; }  
-            50% { opacity: 1; }  
         }  
         .profile-circle {  
             height: 150px;  
@@ -44,13 +38,33 @@
             height: auto;  
         }  
         main {  
-            margin-top: 60px;  
+            margin-top: 100px;  
         }  
         .products-heading {  
             color: #ff5733;  
-            text-align: center;  
+        }  
+        #feedback-message {  
+            display: none;  
+            color: green;  
+            font-weight: bold;  
+            margin-top: 10px;  
         }  
     </style>  
+    <script>  
+        function submitComment() {  
+            // Show feedback message
+            const feedbackMessage = document.getElementById('feedback-message');  
+            feedbackMessage.style.display = 'block';  
+
+            // Clear the comment box
+            document.getElementById('comment-box').value = '';  
+
+            // Hide feedback message after 5 seconds
+            setTimeout(() => {  
+                feedbackMessage.style.display = 'none';  
+            }, 5000);  
+        }  
+    </script>  
 </head>  
 <body class="bg-gray-100">  
     <!-- Welcome Message -->  
@@ -74,14 +88,14 @@
 
     <!-- Main Content Section -->  
     <main class="p-4" id="products">  
-        <h2 class="text-xl font-bold mb-4 products-heading">Our Products</h2>  
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">  
+        <h2 class="text-xl font-bold mb-4 products-heading text-center">Our Products</h2>  
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-4">  
             <!-- Product 1 -->  
             <div class="bg-white p-4 rounded shadow">  
                 <img src="watch.jpg" alt="Product 1" class="w-full h-auto rounded mb-2" />  
                 <h3 class="text-xl">Product 1</h3>  
                 <p class="font-bold">$10.00</p>  
-                <div class="flex items-center mb-2 justify-center">  
+                <div class="flex items-center mb-2">  
                     <span class="text-yellow-500">★★★★★</span>  
                 </div>  
                 <button class="bg-blue-500 text-white p-2 rounded" onclick="addToCart('Product 1', 10)">Add to Cart</button>  
@@ -93,7 +107,7 @@
                 <h3 class="text-xl">Product 2</h3>  
                 <p>Description of Product 2</p>  
                 <p class="font-bold">$20.00</p>  
-                <div class="flex items-center mb-2 justify-center">  
+                <div class="flex items-center mb-2">  
                     <span class="text-yellow-500">★★★★☆</span>  
                 </div>  
                 <button class="bg-blue-500 text-white p-2 rounded" onclick="addToCart('Product 2', 20)">Add to Cart</button>  
@@ -105,7 +119,7 @@
                 <h3 class="text-xl">Product 3</h3>  
                 <p>Description of Product 3</p>  
                 <p class="font-bold">$30.00</p>  
-                <div class="flex items-center mb-2 justify-center">  
+                <div class="flex items-center mb-2">  
                     <span class="text-yellow-500">★★★☆☆</span>  
                 </div>  
                 <button class="bg-blue-500 text-white p-2 rounded" onclick="addToCart('Product 3', 30)">Add to Cart</button>  
@@ -116,24 +130,14 @@
     <!-- Comments Section -->  
     <section class="p-4 bg-white rounded shadow my-4">  
         <h2 class="text-xl font-bold">Comments</h2>  
-        <textarea class="w-full p-2 border rounded" rows="4" placeholder="Leave your comments here..."></textarea>  
-        <button class="bg-blue-500 text-white p-2 rounded mt-2" onclick="leaveComment()">Submit</button>  
-        <p id="feedback-message" class="text-green-600 mt-2"></p>  
+        <textarea id="comment-box" class="w-full p-2 border rounded" rows="4" placeholder="Leave your comments here..."></textarea>  
+        <button class="bg-blue-500 text-white p-2 rounded mt-2" onclick="submitComment()">Submit</button>  
+        <p id="feedback-message">Thanks for your feedback</p>  
     </section>  
 
     <!-- Footer Section -->  
     <footer class="bg-blue-600 text-white p-4 text-center">  
         <p>&copy; 2023 My E-commerce Site</p>  
     </footer>   
-
-    <script>  
-        function addToCart(productName, price) {  
-            alert(`Choose a payment method for ${productName}:\n1. JazzCash\n2. EasyPaisa`);  
-        }  
-
-        function leaveComment() {  
-            document.getElementById("feedback-message").innerText = "Thanks for your feedback";  
-        }  
-    </script>  
 </body>  
 </html>
