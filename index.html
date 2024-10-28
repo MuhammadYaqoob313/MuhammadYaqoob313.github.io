@@ -5,17 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My E-commerce Site</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satoshi:wght@500&display=swap">
     <style>
-        .welcome-message {
+        .welcome-message-container {
             position: absolute;
-            top: -25px;
+            top: 0px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 20px;
-            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .typed-text {
+            display: inline;
+        }
+        
+        .typed-cursor {
+            display: inline-block;
             font-weight: bold;
             font-size: 1.5rem;
-            width: fit-content;
+            animation: blink 0.7s infinite;
+            margin-left: 2px;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .profile-container {
@@ -25,36 +43,14 @@
             margin: 20px auto;
         }
 
-        .rotating-ring {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 5px solid transparent;
-            border-top: 5px solid #fff; /* Adjust color as needed */
-            border-radius: 50%;
-            animation: rotate 2s linear infinite;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
         .profile-circle {
             width: 100%;
             height: 100%;
             top: 8px;
             border-radius: 50%;
             overflow: hidden;
-            border: 5px solid rgb(111, 237, 123);
+            border: 5px solid rgb(255, 255, 255);
             position: relative;
-            z-index: 1; /* Ensure the image is above the rotating ring */
         }
 
         .profile-circle img {
@@ -67,52 +63,16 @@
             transition: all 0.5s ease-in-out;
         }
     </style>
-    <script>
-        function toggleAbout() {
-            const section = document.getElementById('about');
-            section.style.display = section.style.display === 'block' ? 'none' : 'block';
-        }
-
-        window.onload = function() {
-            const welcomeMessage = document.querySelector('.welcome-message');
-            const messages = [
-                "Welcome to Our Online Store!",
-                "I am Owner of this Shop.",
-                "My name is Muhammad Yaqoob!"
-            ];
-            let messageIndex = 0;
-
-            function typeMessage() {
-                welcomeMessage.textContent = ''; 
-                const message = messages[messageIndex];
-                let index = 0;
-
-                function type() {
-                    if (index < message.length) {
-                        welcomeMessage.textContent += message.charAt(index);
-                        index++;
-                        setTimeout(type, 100);
-                    } else {
-                        setTimeout(() => {
-                            messageIndex = (messageIndex + 1) % messages.length;
-                            typeMessage();
-                        }, 2000);
-                    }
-                }
-                type();
-            }
-            typeMessage();
-        };
-    </script>
 </head>
 <body class="bg-gray-200">
 
     <!-- Welcome Message -->
-    <div class="welcome-message"></div>
+    <div class="welcome-message-container">
+        <div class="typed-text"></div><span class="typed-cursor">|</span>
+    </div>
 
     <!-- Profile Circle -->
     <div class="profile-container">
-        <div class="rotating-ring"></div>
         <div class="profile-circle">
             <img src="yaqoob.jpg" alt="Profile Picture">
         </div>
@@ -164,6 +124,25 @@
     <footer class="bg-blue-600 text-white p-4 text-center">
         <p>&copy; 2023 My E-commerce Site</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var typed = new Typed('.typed-text', {
+                strings: [
+                    "Welcome to Our Online Store!",
+                    "I am the Owner of this Shop!",
+                    "My name is Muhammad Yaqoob!"
+                ],
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true,
+                backDelay: 2000,
+                startDelay: 1000,
+                showCursor: false // Default cursor ko hide kiya gaya hai
+            });
+        });
+    </script>
 
 </body>
 </html>
