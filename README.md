@@ -1,2 +1,2 @@
-# Online-Store2
+# My website
 This is my e-commerce website project
