@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Team</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        
+             background-color: #ebcece; 
+             /* background-color: #374751;  */
+           
+        }
+
+        header {
+            background-color: #444;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            top: -25px;
+           
+            margin-left: -25px;
+            margin-right: -25px;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            flex: 1;
+        }
+
+        nav a:hover {
+            background-color: #e3bbbb;
+            color: rgb(55, 52, 101);
+            /* background-color: #dddddd;
+            color: black; */
+        }
+
+        #banner {
+            padding: 5px;
+            margin-top: 6px;
+            margin-bottom: -50px;
+            background-color: #000000;
+        }
+
+        .banner-image img {
+            width: 100%;
+            height: auto;
+        }
+
+
+
+        #home, #players, #totalMatches, #currentMatch, #playerOfTheMatch, #aboutDeveloper {
+            display: none;
+        }
+
+        #home.active, #players.active, #totalMatches.active, #currentMatch.active, #playerOfTheMatch.active, #aboutDeveloper.active {
+            display: block;
+        }
+
+        #players {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+           padding: 10px; 
+           /* display: none; */
+        }
+
+       .playername{
+         margin-top: -11px;
+         color: rgb(0, 0, 0);
+         cursor: pointer;
+       }
+
+       .playername:hover{
+         color: #720e72;
+         /* color: #db8b13; my favorit color */
+       } 
+
+       .para:hover{
+   cursor: pointer;
+   color: rgb(4, 96, 146);
+}
+        /*  background-color: #fff;
+            border: 1px solid #ddd; */
+       
+       
+        .player {
+            background-color: #9fdcea;
+            border: 0.67px solid #83887d;
+            border-radius: 15px;
+            margin: 10px;
+            padding: 25px;
+            text-align: center;
+            align-items: center;
+            width: 200px;
+        }
+
+        .player:hover {
+           border: 1.37px solid #73bf15;
+         background-color: #c7db13;
+        }
+
+        .player img {
+            border-radius: 50%;
+            width: 190px;
+            height: 190px;
+            border: 0.1rem solid #434720;
+            /* border: 0.1rem solid #0dc2f0; */
+            margin-top: -5px;
+            margin-left: -5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        #currentMatch h1 span {
+            color: rgb(115, 182, 237); /* VS color change */
+            cursor: pointer;
+        }
+
+ .welcome-message-container {
+           position: absolute;
+           top: 208px;
+           left: 50%;
+           color: rgb(35, 30, 44);
+           transform: translateX(-50%);
+           display: inline-flex;
+           align-items: center;
+           font-family: 'Satoshi', sans-serif;
+           font-size: 1.5rem;
+           font-weight: bold;
+           white-space: nowrap;
+       } 
+
+      
+       .typed-text {
+           display: inline;
+       }
+
+       .typed-cursor {
+           display: inline-block;
+           font-weight: bold;
+           font-size: 1.5rem;
+           animation: blink 0.7s infinite;
+           margin-left: 2px;
+       }
+
+       @keyframes blink {
+           0%, 100% { opacity: 1; }
+           50% { opacity: 0; }
+       } 
+
+/* Footer section */
+
+footer{
+   margin-top: -15px;
+}
+
+.panal1{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+background-color: #37475a;
+ color: #06fffb;
+height: 60px;
+cursor:pointer ;
+}
+
+.panal1:hover{
+   color: rgb(202, 145, 79);
+}
+
+
+.panal2{
+   background-color: #222f3d;
+   color: whitesmoke;
+   height: 350px;
+   display: flex;
+   justify-content: center;
+}
+
+ul a{
+   display: block;
+}
+
+.panal3{
+   background-color: black;
+   color: white;
+   height:50px ;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.about{
+    color: rgb(66, 192, 74);
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div id="banner" class="banner-image">
+            <img src="BN40.gif" alt="">
+            <!-- <img src="bn.png" alt="Team Banner"> -->
+        </div>
+
+    </header>
+    <nav>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('players')">All Players</a>
+        <a href="#" onclick="showSection('totalMatches')">Total Matches</a>
+        <a href="#" onclick="showSection('currentMatch')">Current Match</a>
+        <a href="#" onclick="showSection('playerOfTheMatch')">Man of the Match</a>
+      
+    </nav>
+    <main> 
+
+        <div id="home" class="active">
+               <!-- Welcome message from the first code -->
+             <div class="welcome-message-container">
+               <div class="typed-text"></div><span class="typed-cursor">|</span>
+             </div>
+         </div>
+
+        <div id="players">
+            <div class="player">
+                <h2 class="playername">Huzaifa Munsab</h2>
+                <img src="hu.png" alt="Player 1">
+                <p class="para"> <b>Captain</b></p>
+            </div>
+
+            <div class="player">
+                <h2 class="playername" > ℚ𝕒𝕣𝕚 𝕜𝕚𝕟𝕘 -`ღ´-</h2>
+                <img src="king.png" alt="Player 2">
+                <p class="para"><b>Vice Captain</b></p>
+            </div>
+
+            <div class="player">
+                <h2 class="playername">Awais Qarni</h2>
+                <img src="aw.png" alt="Player 2">
+                <p class="para"><b>All-rounder</b></p>
+            </div>
+
+            <div class="player">
+                <h2 class="playername">Mannan</h2>
+                <img src="mannan.png" alt="Player 2">
+                <p class="para"><b>All-rounder</b></p>
+            </div>
+
+
+
+            <div class="player">
+               <h2 class="playername">Abdullah</h2>
+               <img src="ab.png" alt="Player 2">
+               <p class="para"><b>All-rounder</b></p>
+           </div>
+
+            <div class="player">
+                <h2 class="playername">Sohaib Khan</h2>
+                <img src="so.png" alt="Player 2">
+                <p class="para"><b>Bowler</b></p>
+            </div>
+
+            <div class="player">
+               <h2 class="playername">Umair</h2>
+               <img src="ai.png" alt="Player 2">
+               <p class="para"><b>Batsman</b></p>
+           </div>
+
+           <div class="player">
+            <h2 class="playername">Usman</h2>
+            <img src="usman iqbal.png" alt="Player 2">
+            <p class="para"><b>Batsman</b></p>
+        </div>
+
+
+
+           <div class="player">
+               <h2 class="playername">Abu Bakar</h2>
+               <img src="abo.png" alt="Player 2">
+               <p class="para"><b>Batsman</b></p>
+           </div>
+
+
+            <div class="player">
+               <h2 class="playername">Abdul Rehman</h2>
+               <img src="abd.png" alt="Player 2">
+               <p class="para"><b>Bowler</b></p>
+           </div>
+
+
+           
+           <div class="player">
+            <h2 class="playername">Ali Iqbal</h2>
+            <img src="ali.png" alt="Player 2">
+            <p class="para"><b>Bowler</b></p>
+        </div>
+
+            
+        </div>
+        <div id="totalMatches">
+            <h2>Total Matches</h2>
+            <table id="matchesTable">
+                <tr>
+                    <th>Total Matches</th>
+                    <th>Won</th>
+                    <th>Lost</th>
+                </tr>
+                <tr>
+                    <td>150</td>
+                    <td>130</td>
+                    <td>20</td>
+                </tr>
+            </table>
+        </div>
+        <div id="currentMatch">
+            <h2>Current Match</h2>
+            <p><h4>This Sundy at 7:30 AM</h5></p>
+            <p><h4><b>Ground Bagh Wala</b></h4></p>
+            <h1><span id="team1">Hunters</span> <span style="color: coral;">VS</span> <span id="team2">Kohli</span></h1>
+        </div>
+        <div id="playerOfTheMatch">
+            <h2>Man of the Match</h2>
+           
+            <table id="playerStatsTable">
+                <tr>
+                    <th>Batter Name</th>
+                    <th>Total Balls</th>
+                    <th>Total Score</th>
+                </tr>
+
+                <tr>
+                    <td>Qari King</td>
+                    <td>37</td>
+                    <td>120</td>
+                    
+
+                    
+
+                </tr>
+                <tr>
+                    <th>Bowler Name</th>
+                    <th>Total Overs</th>
+                    <th>Total Score</th>
+                    <th>Total Wickets</th>
+                    
+                </tr>
+                <tr>
+                    <td>Mannan</td>
+                    <td>5</td>
+                    <td>33</td>
+                    <td>5</td>
+                </tr>
+            </table>
+        </div>
+
+    </main>
+
+    
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script> 
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+           var typed = new Typed('.typed-text', {
+               strings: [
+                 "We are hunters,",
+                 " fearless and strong!",
+                 "Together we play,",
+                 "together we win!",
+                 "We are the game changers!",
+                 "We are not just players,",
+                 " we are warriors!",
+                 "Victory is our habit,",
+                 " and teamwork is our strength!",
+                 "We live for cricket,",
+                 " we fight for glory!",
+                 "we prove why we are the best!"
+
+               ],
+               typeSpeed: 60,
+               backSpeed: 30,
+               loop: true,
+               backDelay: 2000,
+               startDelay: 1000,
+               showCursor: false
+           });
+       });
+
+
+       function showSection(sectionId) {
+    const sections = document.querySelectorAll("main > div");
+    sections.forEach((section) => {
+        section.classList.remove("active");
+    });
+
+    const playersSection = document.getElementById("players");
+    const banner = document.querySelector("header");
+    const footer = document.querySelector("footer");
+
+    // Check if section requires only table
+    if (sectionId === "totalMatches" || sectionId === "currentMatch" || sectionId === "playerOfTheMatch") {
+        playersSection.style.display = "none"; // Hide players
+        banner.style.display = "none"; // Hide banner
+        footer.style.display = "none"; // Hide footer
+    } else {
+        playersSection.style.display = "flex"; // Show players only in the "All Players" section
+        banner.style.display = "block"; // Show banner
+        footer.style.display = "block"; // Show footer
+    }
+
+    const sectionToShow = document.getElementById(sectionId);
+    sectionToShow.classList.add("active");
+}
+
+    </script>
+
+    <footer>
+       <div class="panal1">
+        
+          <h2><b>Developed By <span class="qcolor">Q</span>ari  <span class="kcolor">K</span>ing ✌</b></h2> 
+       </div>
+
+<div class="panal2">
+
+   <ul>
+       <h3 class="about">About Developer</h3>
+       <li>My full name is Hafiz Muhammad Yaqoob.</li>
+       <li>I am also known by the name Qari King.</li>
+       <li>Only contect me on the whatsapp 𝟘𝟛𝟜𝟚-𝟡𝟡𝟡𝟟𝟠𝟠𝟝.</li>
+       <li>I am a Frontend Web Developer.</li>
+       <li>I am a Graphic Designer.</li>
+       <li>I am a Logo Designer.</li>
+       <li>I am also learning Ethical Hacking.</li>
+       <li>I am a student of BS Information Technology.</li>
+       <li>I am Father of Lodhi 🤣😎.</li>
+       <li>My son Lodhi is also known as a dram 🤣.</li>
+   </ul>
+   
+</div>
+
+<div class="panal3">
+   <p>&copy; 2024 - 2025 Qari King. All Rights Reserved.</p>
+
+</div>
+
+    </footer>
+
+</body>
+</html>
