@@ -1,161 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My E-commerce Site</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satoshi:wght@500&display=swap">
-<style>
-    .welcome-message-container {
-        position: absolute;
-        top: 0px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: inline-flex;
-        align-items: center;
-        font-family: 'Satoshi', sans-serif;
-        font-size: 1.5rem;
-        font-weight: bold;
-        white-space: nowrap; /* Message ko ek line mein rakhne ke liye */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Yaqoob | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    /* Mobile Layout ke liye Adjustment */
+    body {
+      background-color: #f0f8ff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #2e8b57;
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      background: #006400;
+      padding: 0.5rem 0;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+ 
+      margin : 0 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+  
+    }
+
+    nav ul li a:hover {
+      color: #98fb98;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 6rem auto;
+      padding: 2rem;
+    }
+
+    section {
+      margin: 2rem 0;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #2e8b57;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      padding: 1.5rem;
+      background: #98fb98;
+      color: #006400;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      background: #32cd32;
+    }
+
+    .contact {
+      text-align: center;
+     
+    }
+
+    footer {
+      background: #2e8b57;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 13rem;
+    }
+
+    a.button {
+      background: #006400;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    a.button:hover {
+      background: #98fb98;
+      color: #006400;
+      transform: translateY(-5px);
+    }
+
+    .whatsapp-icon {
+      display: block;
+      margin: 2rem auto;
+      width: 70px;
+      height: 70px;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-icon:hover {
+      transform: scale(1.2);
+    }
+
+    .profile-section {
+      text-align: center;
+      margin: 2rem 0;
+      background-color: #f8f8f8;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-image {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #73c797 ;
+      transition: transform 0.3s;
+    }
+
+    .profile-image:hover {
+      transform: scale(1.1);
+    }
+
+    .download-btn {
+      background-color: #2e8b57;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #006400;
+      transform: translateY(-5px);
+    }
+
     @media (max-width: 768px) {
-        .welcome-message-container {
-            font-size: 1.2rem; /* Font size chhoti screen ke liye adjust */
-            top: 10px;
-            padding: 0 10px;
-            white-space: nowrap;
-        }
+      header h1 {
+        font-size: 2rem;
+      }
+      .container {
+        padding: 1rem;
+      }
     }
-
-    /* Baqi styles */
-    .typed-text {
-        display: inline;
-    }
-
-    .typed-cursor {
-        display: inline-block;
-        font-weight: bold;
-        font-size: 1.5rem;
-        animation: blink 0.7s infinite;
-        margin-left: 2px;
-    }
-
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-
-    .profile-container {
-        position: relative;
-        width: 250px;
-        height: 250px;
-        margin: 20px auto;
-    }
-
-    .profile-circle {
-        width: 90%;
-        height: 90%;
-        top: 11px;
-        border-radius: 50%;
-        overflow: hidden;
-         border: 5px solid rgb(248, 255, 145);
-        border: 5px solid rgb(255, 255, 255);
-        position: relative;
-    }
-
-    .profile-circle img {
-        width: 100%;
-        height: auto;
-    }
-
-    .about-section {
-        display: none;
-        transition: all 0.5s ease-in-out;
-    }
-</style>
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-200">
-
-    <!-- Welcome Message -->
-    <div class="welcome-message-container">
-        <div class="typed-text"></div><span class="typed-cursor">|</span>
-    </div>
-
-    <!-- Profile Circle -->
-    <div class="profile-container">
-        <div class="profile-circle">
-            <img src="yaqoob.jpg" alt="Profile Picture">
-        </div>
-    </div>
-
-    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
-        <nav>
-            <a href="#home" class="mr-4">Home</a>
-            <a href="#about" class="mr-4" onclick="toggleAbout()">About Us</a>
-            <a href="#products" class="mr-4">Products</a>
-        </nav>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="about-section p-4 bg-white rounded shadow my-4">
-        <h2 class="text-xl font-bold">About Us</h2>
-        <p>We are dedicated to providing the best products for our customers.</p>
+<body>
+  <header>
+    <h1>Muhammad Yaqoob Portfolio</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <section id="profile" class="profile-section">
+      <h2>Profile</h2>
+      <!-- <input type="file" id="profilePicInput" accept="image/*" onchange="loadProfilePicture(event)" style="margin: 1rem 0;"> -->
+      <br>
+      <img id="profilePic" class="profile-image" src="My_Profile.jpg" alt="Profile Picture">
+      <br>
+      <a href="My_CV.png" class="download-btn" download>Download CV</a>
     </section>
 
-    <main class="p-4" id="products">
-        <h2 class="text-xl font-bold mb-4 text-center">OUR PRODUCTS</h2>
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- Product 1 -->
-            <div class="bg-white p-4 rounded shadow">
-                <img src="watch.jpg" alt="Product 1" class="w-full h-auto rounded mb-2">
-                <h3 class="text-xl">Product 1</h3>
-                <p class="font-bold">$10.00</p>
-                <button class="bg-blue-500 text-white p-2 rounded">Add to Cart</button>
-            </div>
+    <section id="skills" class="skills">
+      <h2>My Skills</h2>
+      <div class="skill-card">
+        <h3>HTML & CSS</h3>
+        <p>Expert in creating responsive and attractive web pages.</p>
+      </div>
+      <div class="skill-card">
+        <h3>MS Word & Excel</h3>
+        <p>Proficient in document and spreadsheet management.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Typing Speed</h3>
+        <p>Around 35 words per minute with accuracy.</p>
+      </div>
+      <div class="skill-card">
+        <h3>JavaScript</h3>
+        <p>Learning to add interactivity to websites.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Backend with MongoDB & Express</h3>
+        <p>Exploring backend development using modern technologies.</p>
+      </div>
+    </section>
 
-            <!-- Product 2 -->
-            <div class="bg-white p-4 rounded shadow">
-                <img src="joger.jpg" alt="Product 2" class="w-full h-auto rounded mb-2">
-                <h3 class="text-xl">Product 2</h3>
-                <p class="font-bold">$20.00</p>
-                <button class="bg-blue-500 text-white p-2 rounded">Add to Cart</button>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="bg-white p-4 rounded shadow">
-                <img src="laptop.jpg" alt="Product 3" class="w-full h-auto rounded mb-2">
-                <h3 class="text-xl">Product 3</h3>
-                <p class="font-bold">$30.00</p>
-                <button class="bg-blue-500 text-white p-2 rounded">Add to Cart</button>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-blue-600 text-white p-4 text-center">
-        <p>All Rights Reserved © 2024</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var typed = new Typed('.typed-text', {
-                strings: [
-                    "Welcome to Our Online Store!",
-                    "I am the Owner of this Shop!",
-                    "My name is Muhammad Yaqoob!"
-                ],
-                typeSpeed: 60,
-                backSpeed: 30,
-                loop: true,
-                backDelay: 2000,
-                startDelay: 1000,
-                showCursor: false // Default cursor ko hide kiya gaya hai
-            });
-        });
-    </script>
-
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+      <p>If you like my work and want to connect, please reach out to me!</p>
+      <br>
+      <a href= "mailto:yaqoobanjum313@gmail.com" class="button">Email Me</a>
+      <br>
+      <a href="https://wa.me/9234299975" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+      </a>
+    </section>
+  </div>
+  <footer>
+    <p class="copyright">&copy; 2025 Muhammad Yaqoob. All rights reserved.</p>
+  </footer>
+  <script>
+    function loadProfilePicture(event) {
+      const profilePic = document.getElementById('profilePic');
+      profilePic.src = URL.createObjectURL(event.target.files[0]);
+    }
+  </script>
 </body>
 </html>
