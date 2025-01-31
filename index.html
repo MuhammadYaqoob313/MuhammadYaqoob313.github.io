@@ -1,258 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Yaqoob Portfolio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Crokery Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        
+  * {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo {
+    font-size: 15px;
+    color: rgb(34, 205, 156);
+}
+
+.boder {
+    border: 1.5px solid transparent;
+}
+
+.boder:hover {
+    border: 1.5px solid white;
+}
+
+.ddress-baox {
+    display: flex;
+    align-items: center;
+}
+
+.add-1 {
+    color: #cccccc;
+    font-size: 0.89rem;
+}
+
+.add-2 {
+    font-size: 1rem;
+    margin-left: 5px;
+}
+
+.add-icons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-search {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    max-width: 600px;
+    height: 48px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.search-select {
+    background-color: #f3f3f3;
+    width: 50px;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+}
+
+.search-input {
+    width: 100%;
+    font-size: 1rem;
+    border: none;
+}
+
+.add-search-icons {
+    width: 45px;
+    height: 48px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #febd68;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: black;
+}
+
+.nav-signin, .nav-return, .nav-cart {
+    font-size: 0.85rem;
+}
+
+.nav-cart i {
+    font-size: 35px;
+}
+
+.panel {
+    height: 40px;
+    background-color: #222f3d;
+    display: flex;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.panel-ops p {
+    display: inline;
+    margin: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.panel-deals {
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url("top.jpg");
+    background-size: cover;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Shop Section */
+.shops-section {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: #ecb2a3;
+    padding: 20px 0;
+}
+
+.box {
+    height: 400px;
+    width: 23%;
+    border: 2px solid black;
+    background-color: white;
+    padding: 20px 0;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.box-img {
+    height: 250px;
+    background-size: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.box-content p {
+    color: #007185;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
     }
 
-    body {
-      background-color: #f0f8ff;
-      color: #333;
-      line-height: 1.6;
+    .nav-search {
+        width: 100%;
+        margin-top: 10px;
     }
 
-    header {
-      background-color: #2e8b57;
-      color: white;
-      padding: 1.5rem 0;
-      text-align: center;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    .shops-section {
+        flex-direction: column;
+        align-items: center;
     }
 
-    header h1 {
-      font-size: 2.5rem;
+    .box {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        font-size: 0.75rem;
     }
 
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      background: #006400;
-      padding: 0.5rem 0;
-      margin-top: 1rem;
-      flex-wrap: wrap;
+    .box {
+        width: 100%;
     }
 
-    nav ul li {
- 
-      margin : 0 1.5rem;
+    .nav-search {
+        width: 100%;
+        margin-top: 10px;
     }
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-  
+    .panel {
+        flex-direction: column;
+        align-items: flex-start;
     }
+}
 
-    nav ul li a:hover {
-      color: #98fb98;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 6rem auto;
-      padding: 2rem;
-    }
-
-    section {
-      margin: 2rem 0;
-      padding: 2rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-      color: #2e8b57;
-    }
-
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .skill-card {
-      padding: 1.5rem;
-      background: #98fb98;
-      color: #006400;
-      border-radius: 8px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      background: #32cd32;
-    }
-
-    .contact {
-      text-align: center;
-     
-    }
-
-    footer {
-      background: #2e8b57;
-      color: white;
-      text-align: center;
-      padding: 1rem 0;
-      margin-top: 13rem;
-    }
-
-    a.button {
-      background: #006400;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    a.button:hover {
-      background: #98fb98;
-      color: #006400;
-      transform: translateY(-5px);
-    }
-
-    .whatsapp-icon {
-      display: block;
-      margin: 2rem auto;
-      width: 70px;
-      height: 70px;
-      transition: transform 0.3s;
-    }
-
-    .whatsapp-icon:hover {
-      transform: scale(1.2);
-    }
-
-    .profile-section {
-      text-align: center;
-      margin: 2rem 0;
-      background-color: #f8f8f8;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .profile-image {
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #73c797 ;
-      transition: transform 0.3s;
-    }
-
-    .profile-image:hover {
-      transform: scale(1.1);
-    }
-
-    .download-btn {
-      background-color: #2e8b57;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 5px;
-      font-size: 1.1rem;
-      margin-top: 1rem;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    .download-btn:hover {
-      background-color: #006400;
-      transform: translateY(-5px);
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .container {
-        padding: 1rem;
-      }
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Muhammad Yaqoob Portfolio</h1>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact Me</a></li>
-    </ul>
-  </nav>
-  <div class="container">
-    <section id="profile" class="profile-section">
-      <h2>Profile</h2>
-      <!-- <input type="file" id="profilePicInput" accept="image/*" onchange="loadProfilePicture(event)" style="margin: 1rem 0;"> -->
-      <br>
-      <img id="profilePic" class="profile-image" src="My_Profile.jpg" alt="Profile Picture">
-      <br>
-      <a href="My_CV.png" class="download-btn" download>Download CV</a>
-    </section>
+<header>
+        <div class="nav">
+    <div class="logo boder">
+        <h1>Sakina Crockery Store</h1>
+    </div>
+<div class="ddress-baox boder">
+    <p class="add-1">Multan</p>
+    <div class="add-icons">
+        <i class="fa-solid fa-location-dot"></i>
+         <p class="add-2">Pakkistan</p>
+    </div>
+</div>
+<div class="nav-search">
+    <select class="search-select">
+        <option>All</option>
+    </select>
+    <input placeholder="Search items... " class="search-input">
+    <div class="add-search-icons">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+</div>
 
-    <section id="skills" class="skills">
-      <h2>My Skills</h2>
-      <div class="skill-card">
-        <h3>HTML & CSS</h3>
-        <p>Expert in creating responsive and attractive web pages.</p>
-      </div>
-      <div class="skill-card">
-        <h3>MS Word & Excel</h3>
-        <p>Proficient in document and spreadsheet management.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Typing Speed</h3>
-        <p>Around 35 words per minute with accuracy.</p>
-      </div>
-      <div class="skill-card">
-        <h3>JavaScript</h3>
-        <p>Learning to add interactivity to websites.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Backend with MongoDB & Express</h3>
-        <p>Exploring backend development using modern technologies.</p>
-      </div>
-    </section>
+<div class="nav-return boder">
+    <p class="nav-3">&Orders</p>
+</div>
+<div class="nav-cart boder">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Cart
+</div>
+</div>
+<div class="panel">
+    <div class="panel-all boder">
 
-    <section id="contact" class="contact">
-      <h2>Contact Me</h2>
-      <p>If you like my work and want to connect, please reach out to me!</p>
-      <br>
-      <a href= "mailto:yaqoobanjum313@gmail.com" class="button">Email Me</a>
-      <br>
-      <a href="https://wa.me/923429997885" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
-      </a>
-    </section>
-  </div>
-  <footer>
-    <p class="copyright">&copy; 2025 Muhammad Yaqoob. All rights reserved.</p>
-  </footer>
-  <script>
-    function loadProfilePicture(event) {
-      const profilePic = document.getElementById('profilePic');
-      profilePic.src = URL.createObjectURL(event.target.files[0]);
-    }
-  </script>
+    <i class="fa-solid fa-bars"></i>
+        All
+    </div>
+    <div class="panel-ops ">
+        <p>today's deals</p>
+        <p> Customer Services</p>
+        <p>Registry</p>
+ 
+    </div>
+    <div class="panel-deals boder">
+        Shop deals in Electronics
+    </div>
+</div>
+
+ <div class="hero-section">
+ </div>
+
+<div class="shops-section">
+
+    <div class="box1 box" >
+       <div class="box-content">
+        <h2>Smart Watch</h2>
+        <div class="box-img" style="background-image: url('watch.jpg') ;"></div>
+        <p>see more</p>
+       </div>
+
+    </div>
+
+    <div class="box2 box">
+       <div class="box-content">
+        <h2>Bicycles</h2>
+        <div class="box-img" style="background-image: url('bys2.jpg') ;"></div>
+        <p>see more</p>
+       </div>
+</div>
+
+    <div class="box3 box">
+       <div class="box-content">
+        <h2>Kids Bicycles</h2>
+        <div class="box-img" style="background-image: url('kidbysical.jpg') ;"></div>
+        <p>see more</p>
+       </div>
+
+</div>
+    <div class="box4 box">
+       <div class="box-content">
+        <h2>Kitchen Items</h2>
+        <div class="box-img" style="background-image: url('plates.jpg') ;"></div>
+        <p>see more</p>
+       </div>    
+</div>
+
+<div class="box1 box" >
+    <div class="box-content">
+     <h2>plastic Chairs & Tables</h2>
+     <div class="box-img" style="background-image: url('chairs.jpg') ;"></div>
+     <p>see more</p>
+    </div>
+
+ </div>
+
+ <div class="box2 box">
+    <div class="box-content">
+     <h2>Water Bottles</h2>
+     <div class="box-img" style="background-image: url('water_Botteles.jpg\ -\ Copy.jpg') ;"></div>
+     <p>see more</p>
+    </div>
+</div>
+
+ <div class="box3 box">
+    <div class="box-content">
+     <h2>Plastics Items</h2>
+     <div class="box-img" style="background-image: url('plasticBox.jpg') ;"></div>
+     <p>see more</p>
+    </div>
+
+</div>
+ <div class="box4 box">
+    <div class="box-content">
+     <h2>Smart Watch</h2>
+     <div class="box-img" style="background-image: url('watch.jpg') ;"></div>
+     <p>see more</p>
+    </div>
+</div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 Sakina Crockery Store. All rights reserved.</p>
+        <p>Address: Multan, Pakistan</p>
+    </div>
+</footer>
+</header>
 </body>
 </html>
